@@ -1,0 +1,19 @@
+baseURL = 'https://www.sepidehmiller.com/'
+languageCode = 'en-us'
+title = 'Sepideh Miller'
+theme = 'aether'
+
+[params]
+  headshotimg = "img/stellars_jay.jpg" 
+  headshotalt = "A picture of a stellar's jay with a blue head and a dark body sitting on a branch"
+  description = "An Android developer writing about the things she is learning"
+  rssinmenu = true
+  github = "https://github.com/baghaii"
+  linkedin = "https://www.linkedin.com/in/sepideh-miller/"
+[markup]
+  [markup.highlight]
+    style = "igor"
+
+# Use permalinks for blog posts (defaults to "/:section/:filename/")
+[permalinks]
+  posts = "/:section/:year/:month/:title/"
