@@ -76,8 +76,8 @@ I finally had the bones of my first site set up.
 One thing that I wanted to do that another person in the issues section of the GitHub for this theme also wanted to do was change the color of the blob. I poked around in the theme and learned that the blob was saved as an SVG. I was able to go in and mess with the color of the blob, but messing with the theme like that is not recommended because updates to the theme will lose these customizations. 
 
 If you want to do ill advised things like I do, if you are at a terminal prompt in some flavor of unix, you can run this shell command:  
-```shell
-find . -name *.svg
+```
+find . -name \*.svg
 ```
 
 You will see two files with the word "blob" in their names like:
