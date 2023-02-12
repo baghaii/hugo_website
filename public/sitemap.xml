@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.sepidehmiller.com/</loc>
+    <lastmod>2023-02-05T09:25:39-07:00</lastmod>
+  </url><url>
+    <loc>https://www.sepidehmiller.com/categories/</loc>
+    <lastmod>2023-02-05T08:39:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.sepidehmiller.com/posts/2023/02/creating-your-hugo-website/</loc>
+    <lastmod>2023-02-05T08:39:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.sepidehmiller.com/posts/</loc>
+    <lastmod>2023-02-05T08:39:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.sepidehmiller.com/categories/web/</loc>
+    <lastmod>2023-02-05T08:39:27-07:00</lastmod>
+  </url><url>
+    <loc>https://www.sepidehmiller.com/tags/</loc>
+  </url>
+</urlset>

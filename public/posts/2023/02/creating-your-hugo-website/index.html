@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Creating your Hugo website &middot; Sepideh Miller</title>
+  <meta name="description" content="Setting up your first Hugo website with the aether theme" />
+  <link href="https://www.sepidehmiller.com/css/katex.min.css" rel="stylesheet">
+  
+  
+  
+  
+  <link href="https://www.sepidehmiller.com/css/concated.min.css" rel="stylesheet">
+  
+  
+</head>
+
+  <body class="single-body">
+    <nav class="nav-bar side-padding">
+  <h1 class="nav-header"><a href="https://www.sepidehmiller.com/" class="nav-text">Sepideh Miller</a></h1>
+  <div class="hamburger-menu">
+    <input class="hamburger-menu-button" type="checkbox"
+      onclick="hamburgerMenuPressed.call(this)"
+      aria-label="Hamburger Menu Button"
+    >
+    <div class="hamburger-menu-icon">
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="menu" class="hamburger-menu-overlay">
+      <li><a href="https://www.sepidehmiller.com/" class="hamburger-menu-overlay-link">Home</a></li>
+      
+      <li><a href="https://www.sepidehmiller.com/categories/web/" class="hamburger-menu-overlay-link">web</a></li>
+      
+      <li><a href="https://www.sepidehmiller.com/index.xml" class="hamburger-menu-overlay-link">rss</a></li>
+    </ul>
+  </div>
+</nav>
+
+    <main class="content side-text-padding">
+      <article class="post dropcase">
+        <header class="post-header">
+          <h1 class="post-title">Creating your Hugo website</h1>
+          <p class="post-date">Posted <time datetime="2023-02-05">Feb 5, 2023</time></p>
+        </header>
+        
+        
+        <p>Though I have created web pages for fun for a long time, I have not kept up with the pace of modern web development. The last time I updated my blog, I used Jekyll. Jekyll is still out there, but my blog was starting to look dated.</p>
+<p>I wanted something modern looking without a lot of effort on my part. I decided to give <a href="https://gohugo.io/getting-started/quick-start/">Hugo</a> a shot. I spent several months in decision paralysis trying to pick <a href="https://themes.gohugo.io/">a theme</a>. Though I am happy to include some photos, my blog is not going to be dominated by pictures.</p>
+<p>Eventually, I landed on <a href="https://www.joehutch.com/posts/aether-theme/">aether</a>. It looks clean, and it has some photos without being dominated by them. The theme is also responsive so it should look okay on phones.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>I followed the <a href="https://gohugo.io/getting-started/quick-start/">quick start instructions</a> on the Hugo website.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new site website
+</span></span><span style="display:flex;"><span>cd website
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git submodule add https://github.com/josephhutch/aether themes/aether
+</span></span><span style="display:flex;"><span>echo <span style="color:#009c00">&#34;theme = &#39;aether&#39;&#34;</span> &gt;&gt; config.toml
+</span></span></code></pre></div><p>Instead of following the normal rules for starting the development server, I used</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ~/website 
+</span></span><span style="display:flex;"><span>hugo server -F -b <span style="color:#009c00">&#34;http://[internal ip address]&#34;</span> --bind=[internal ip address]
+</span></span></code></pre></div><p>and then I set up a shell alias for this command so I would not have to remember it ever again.</p>
+<p>I was underwhelmed. The sides of the giant blob at the top of my Hugo site were cut off. I wondered if I had downloaded an old theme that was broken.</p>
+<h2 id="setting-up-your-site">Setting up your site</h2>
+<p>I began editing my <code>config.toml</code> as <a href="https://www.joehutch.com/posts/aether-theme/">Joe Hutchinson</a> specified on his site. I set the title to my name. In the params section of the file, I added:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>headdshotimg = <span style="color:#009c00">&#34;img/stellars_jay.jpg&#34;</span> 
+</span></span><span style="display:flex;"><span>headshotalt = <span style="color:#009c00">&#34;A picture of a stellar&#39;s jay from a hike to Hanging Lake&#34;</span> 
+</span></span></code></pre></div><p>The top blob was still not complete. I tried to add a new post to fix that.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new posts/firstpost/index.md
+</span></span></code></pre></div><p>Inside my index.md file, I updated the title to be something really long. That fixed the layout so the sides of the blob were not cut off. However, the stellar&rsquo;s jay was floating towards the center of the blob and not off to the right as you see it on Joe&rsquo;s site.</p>
+<p>Inside my posts directory, I needed an <code>_index.md</code> This is the index page for the main site.</p>
+<p>In that file, I wrote:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>title: <span style="color:#009c00">&#34;I am Sepideh Miller&#34;</span>
+</span></span><span style="display:flex;"><span>date: 2023-02-05T09:25:39-07:00
+</span></span><span style="display:flex;"><span>description: <span style="color:#009c00">&#34;An Android developer and crocheter learning about new technology.&#34;</span>
+</span></span></code></pre></div><p>This set up the title and description inside the blob on the main page of the site.</p>
+<p>I finally had the bones of my first site set up.</p>
+<p>One thing that I wanted to do that another person in the issues section of the GitHub for this theme also wanted to do was change the color of the blob. I poked around in the theme and learned that the blob was saved as an SVG. I was able to go in and mess with the color of the blob, but messing with the theme like that is not recommended because updates to the theme will lose these customizations.</p>
+<p>If you want to do ill advised things like I do, if you are at a terminal prompt in some flavor of unix, you can run this shell command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>find . -name *.svg
+</span></span></code></pre></div><p>You will see two files with the word &ldquo;blob&rdquo; in their names like:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./themes/aether/static/img/home-blob-flip.svg
+</span></span><span style="display:flex;"><span>./themes/aether/static/img/home-blob.svg
+</span></span></code></pre></div><p>In the files, you will find lines that say <code>fill=&quot;[HEX COLOR CODE]&quot;</code> You can simply change the colors of those codes, and your blobs will be a different color.</p>
+<p>A less hacky way to do this is to move copies of the SVGs to your own <code>static/img</code> directory outside the theme. Those won&rsquo;t be overwritten by theme updates.</p>
+
+      </article>
+      
+    </main>
+    <nav class="end-nav side-padding">
+      
+    </nav>
+    <footer class="side-padding" style="background-image: url('https://www.sepidehmiller.com/img/home-blob-flip.svg');">
+    <a href="https://www.sepidehmiller.com/" class="footer-link">
+    
+        <img class="footer-icon" src="https://www.sepidehmiller.com/icons/home.svg" alt="Home">
+    
+    </a>
+    
+    
+    
+    <a href="https://github.com/baghaii" class="footer-link" target="_blank" rel="noopener noreferrer">
+    
+        <img class="footer-icon" src="https://www.sepidehmiller.com/icons/github.svg" alt="GitHub"/>
+    
+    </a>
+    
+    
+    
+    <a href="https://www.linkedin.com/in/sepideh-miller/" class="footer-link" target="_blank" rel="noopener noreferrer">
+    
+        <img class="footer-icon" src="https://www.sepidehmiller.com/icons/linkedin.svg" alt="LinkedIn"/>
+    
+    </a>
+    
+    
+    <a href="https://www.sepidehmiller.com/index.xml" class="footer-link" target="_blank" rel="noopener noreferrer">
+    
+        <img class="footer-icon" src="https://www.sepidehmiller.com/icons/rss.svg" alt="RSS"/>
+    
+    </a>
+    
+    
+    
+    
+    
+    
+    
+    
+</footer>
+    
+  <script defer src="https://www.sepidehmiller.com/js/katex.min.js"></script>
+
+
+  <script defer src="https://www.sepidehmiller.com/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+
+<script src="https://www.sepidehmiller.com/js/core.min.js"></script>
+
+  </body>
+</html>
